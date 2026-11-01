@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" role="img" aria-labelledby="title desc">
+  <title id="title">OnePlus 7 Pro NetHunter Kernel</title>
+  <desc id="desc">A neon cyberpunk banner for the OnePlus 7 Pro NetHunter kernel project.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08051a"/><stop offset="0.52" stop-color="#111239"/><stop offset="1" stop-color="#061d2b"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ff2bd6"/><stop offset="0.5" stop-color="#8b5cff"/><stop offset="1" stop-color="#00f0ff"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#39d9ff" stroke-opacity=".13"/></pattern>
+  </defs>
+  <rect width="1600" height="420" rx="24" fill="url(#bg)"/>
+  <rect x="26" y="26" width="1548" height="368" rx="18" fill="url(#grid)" stroke="#4fddff" stroke-opacity=".35"/>
+  <path d="M0 334C280 274 430 384 730 323S1230 242 1600 301" fill="none" stroke="url(#neon)" stroke-width="4" opacity=".85" filter="url(#glow)"/>
+  <path d="M0 350C280 290 430 400 730 339S1230 258 1600 317" fill="none" stroke="#00f0ff" stroke-opacity=".22" stroke-width="2"/>
+  <g transform="translate(92 100)" fill="none" stroke="url(#neon)" stroke-width="10" filter="url(#glow)">
+    <rect x="0" y="0" width="166" height="210" rx="27"/>
+    <circle cx="83" cy="54" r="29"/><path d="M35 132h96M35 164h62"/>
+  </g>
+  <text x="330" y="154" fill="#f6f3ff" font-family="Arial,Helvetica,sans-serif" font-size="62" font-weight="800" letter-spacing="5">NETHUNTER // OP7</text>
+  <text x="334" y="220" fill="#00f0ff" font-family="monospace" font-size="29" letter-spacing="4">CYBERDECK KERNEL • BUILD 11</text>
+  <text x="337" y="275" fill="#ff7ee8" font-family="monospace" font-size="20" letter-spacing="2">LINEAGEOS 23.2 / ANDROID 16 / ARM64</text>
+  <circle cx="1440" cy="104" r="7" fill="#00f0ff" filter="url(#glow)"/><circle cx="1470" cy="104" r="7" fill="#ff2bd6" filter="url(#glow)"/><circle cx="1500" cy="104" r="7" fill="#8b5cff" filter="url(#glow)"/>
+</svg>

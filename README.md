@@ -1,3 +1,13 @@
+<p align="center">
+  <img src="assets/cyberpunk-banner.svg" alt="OnePlus 7 Pro NetHunter Kernel cyberpunk banner" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://github.com/neonbytecode/oneplus7pro-nethunter-kernel/releases"><img src="https://img.shields.io/badge/RELEASE-BUILD%2011-ff2bd6?style=for-the-badge&logo=github" alt="Build 11 release"></a>
+  <a href="docs/INSTALL.md"><img src="https://img.shields.io/badge/FLASH-SAFE%20ROLLBACK-00f0ff?style=for-the-badge&logo=android" alt="Safe rollback"></a>
+  <a href="docs/MODULES.md"><img src="https://img.shields.io/badge/MODULES-ON%20DEMAND-8b5cff?style=for-the-badge&logo=linux" alt="On-demand modules"></a>
+</p>
+
 # OnePlus 7 Pro NetHunter Kernel
 
 ![Device](https://img.shields.io/badge/device-OnePlus%207%20Pro-red)
@@ -8,6 +18,15 @@
 Kali NetHunter kernel and safe on-demand modules for the OnePlus 7 Pro (`GM1911`) running LineageOS 23.2 / Android 16.
 
 > This release is device- and ROM-specific. Read the compatibility and recovery instructions before flashing.
+
+## ◈ Cyberdeck status
+
+| ◉ Core | ⚡ Runtime | 🛡 Safety | 📡 Wireless |
+| --- | --- | --- | --- |
+| `4.14.357` / arm64 | Magisk 30.7 | on-demand modules | Wi‑Fi tested |
+| build11 / Clang 21 | Android 16 | rollback verified | external monitor adapter recommended |
+
+The visual theme is cosmetic: the kernel remains a conservative, recovery-first build. Add-ons are present but do not auto-load during boot.
 
 ## Release highlights
 
