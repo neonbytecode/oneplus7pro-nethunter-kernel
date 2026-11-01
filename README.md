@@ -53,7 +53,7 @@ Always verify `SHA256SUMS` before use.
 
 | Item | Tested value |
 | --- | --- |
-| Device | OnePlus 7 Pro, `GM1911` |
+| Device | OnePlus 7 Pro, `GM1911/GM1913` |
 | ROM | LineageOS 23.2 |
 | Android | 16 |
 | Architecture | arm64 |
