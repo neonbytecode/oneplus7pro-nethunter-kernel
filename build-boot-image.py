@@ -31,7 +31,7 @@ DTB_SIZE_OFF = 1648
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--image", required=True, help="raw arm64 Image from the rebuild")
-    ap.add_argument("--ramdisk", required=True, help="gzip ramdisk (ramdisk.cpio.gz)")
+    ap.add_argument("--ramdisk", required=True, help="gzip or kernel-compatible xz ramdisk")
     ap.add_argument("--dtb", required=True, help="DTB blob (20 DTBs)")
     ap.add_argument("--base", required=True, help="current working boot image (header + AVB tail)")
     ap.add_argument("--out", required=True)

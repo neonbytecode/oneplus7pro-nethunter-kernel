@@ -1,33 +1,77 @@
-# Kali NetHunter kernel — OnePlus 7 Pro / LOS 23.2
+# OnePlus 7 Pro NetHunter Kernel
 
-This is a tested build for the OnePlus 7 Pro (GM1911) running LineageOS 23.2 / Android 16.
+![Device](https://img.shields.io/badge/device-OnePlus%207%20Pro-red)
+![ROM](https://img.shields.io/badge/ROM-LineageOS%2023.2-blue)
+![Android](https://img.shields.io/badge/Android-16-green)
+![Status](https://img.shields.io/badge/status-tested-success)
 
-## Tested release
+Kali NetHunter kernel and safe on-demand modules for the OnePlus 7 Pro (`GM1911`) running LineageOS 23.2 / Android 16.
+
+> This release is device- and ROM-specific. Read the compatibility and recovery instructions before flashing.
+
+## Release highlights
 
 - Kernel: `4.14.357-v0lk3n-SM8150_OP7Serie-LOS_23.2+`
-- Build: build11, Clang/LLD 21.1.8, arm64
-- Boot image: v2 header, 4096-byte pages, 20-DTB blob
-- `DEBUG_FS` is intentionally disabled to keep the raw kernel within the proven gzip boot budget.
-- KPROBES, PSTORE/ramoops, UVC gadget, RD_XZ/RD_LZ4, and the requested filesystem/network modules are enabled.
-- Add-on modules are installed but never auto-loaded. Use the module's `load-on-demand.sh` as root for individual features.
+- Build11, arm64, Clang/LLD 21.1.8
+- Android boot header v2, 4096-byte pages, 20-DTB blob
+- PSTORE/ramoops, KPROBES, UVC gadget, RD_XZ/RD_LZ4
+- CIFS, NTFS, ISO9660, UDF, SquashFS, IFB, NETEM, TBF, USB serial, CAN, HWSIM and related modules
+- Add-ons are installed but never auto-loaded; this protects boot and Wi-Fi stability
+- Tested normal boot, Magisk, Wi-Fi association, Internet connectivity and controlled on-demand module loading
 
-## Important warnings
+## Download
 
-This is not a universal OnePlus 7 Pro image. Do not flash it on another model, ROM, slot layout, or DTB set without rebuilding and testing. Make a boot-partition backup first and keep a working restore image available. The maintainer's tested rollback image is not included in this release bundle.
+Always verify `SHA256SUMS` before use.
 
-The image contains a Magisk-compatible ramdisk but no personal data or keys. Users should install their own Magisk setup where appropriate.
+| Artifact | Purpose |
+| --- | --- |
+| `boot-nh-advanced-build11-gzip.img` | Flashable build11 boot image |
+| `nh-kernel-addons-build11-safe-fixed.zip` | Magisk module with 21 on-demand `.ko` files |
+| `config-build11` | Exact kernel configuration |
+| `SHA256SUMS` | Integrity manifest |
 
-## Installation
+## Compatibility
 
-1. Verify the SHA-256 values in `SHA256SUMS`.
-2. Confirm the device model, ROM, slot, and boot partition size.
-3. Save the current boot image.
-4. Flash only the matching boot partition with fastboot, then reboot.
-5. Install the safe add-on ZIP through Magisk. Modules remain on-demand after boot.
+| Item | Tested value |
+| --- | --- |
+| Device | OnePlus 7 Pro, `GM1911` |
+| ROM | LineageOS 23.2 |
+| Android | 16 |
+| Architecture | arm64 |
+| Boot target | `boot_b`, 100,663,296 bytes |
+| SELinux | Permissive during testing |
 
-If Android does not boot, return to fastboot and restore the saved boot image immediately.
+Other variants, ROMs, firmware revisions, DTB blobs and partition layouts are not guaranteed.
+
+## Quick start
+
+1. Read [`docs/INSTALL.md`](docs/INSTALL.md) and make a boot-partition backup.
+2. Verify downloads with `shasum -a 256 -c SHA256SUMS`.
+3. Confirm the model, ROM, slot and partition size.
+4. Flash the boot image and reboot.
+5. Install the Magisk module ZIP.
+
+Modules are loaded manually, for example:
+
+```sh
+su -c 'sh /data/adb/modules/nh-kernel-addons/load-on-demand.sh squashfs'
+```
+
+## Documentation
+
+- [Installation and recovery](docs/INSTALL.md)
+- [Build from source](docs/BUILD.md)
+- [Module catalog and on-demand loading](docs/MODULES.md)
+- [Troubleshooting](docs/TROUBLESHOOTING.md)
+- [Security and publishing policy](docs/SECURITY.md)
+- [Repository file map](docs/FILES.md)
+- [Changelog](docs/CHANGELOG.md)
+- [Contributing](docs/CONTRIBUTING.md)
 
 ## Source and licensing
 
-The source is based on `V0lk3n/nethunter_kernel_oneplus_sm8150`, branch `nethunter-lineage-23.2`, with the documented build configuration and compatibility fixes. Publish the corresponding source commit, configuration, patches, and build instructions alongside these binaries. Preserve all upstream GPL and third-party notices; binaries alone are not a substitute for the required source offer.
+The build is based on `V0lk3n/nethunter_kernel_oneplus_sm8150`, branch `nethunter-lineage-23.2`, with documented compatibility fixes. Preserve all upstream GPL and third-party notices. Corresponding source, patches and build environment must be available when redistributing binaries.
 
+## Recovery promise
+
+If a test fails, restore the saved boot image immediately from fastboot. Do not continue experimenting without a known-good recovery path.

@@ -9,7 +9,7 @@ set -eu
 
 HERE=$(cd "$(dirname "$0")" && pwd)
 STAGE=${STAGE:-$HERE/modules-staged}
-MODDIR=${MODDIR:-$HERE/nh-kernel-addons-build9}
+MODDIR=${MODDIR:-$HERE/nh-kernel-addons-build11}
 CONTAINER=nhbuild
 KSRC=/srv/k2
 
